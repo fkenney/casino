@@ -39,6 +39,9 @@ function startGame(){
     document.getElementById("hit").addEventListener("click", hit);
     document.getElementById("stay").addEventListener("click", stay);
     displayResults();
+    if(yourSum == 21){
+        stay();
+    }
 
 }
 
@@ -115,6 +118,6 @@ function stay(){
 }
 
 function displayResults(){
-    document.getElementById("your-sum").innerText = yourSum;
-    document.getElementById("dealer-sum").innerText = dealerSum - getValue(hidden);
+    document.getElementById("your-sum").innerText = reduceAce(yourSum, yourAceCount);
+    document.getElementById("dealer-sum").innerText = reduceAce((dealerSum - getValue(hidden)), dealerAceCount);
 }
