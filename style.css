@@ -1,0 +1,16 @@
+
+@import "./node_modules/bootstrap/dist/css/bootstrap.css";
+@import "./node_modules/bootstrap-icons/font/bootstrap-icons.css";
+
+body{
+    text-align: center;
+    background-image: url('./casino.png');
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+#dealer-cards img{
+    width: 12%;
+}
+#your-cards img{
+    width: 10%;
+}
