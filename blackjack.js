@@ -12,30 +12,43 @@ const PLAYER_BOARD = document.getElementById('your-cards')
 deck = shuffleDeck(deck);
 startGame();
 
+function dealCard(player){
+    //create card to add
+    return new Promise(function(resolve){
+        setTimeout(()=>{
+            let card = deck.pop();
+            let cardImg = document.createElement('img');
+            cardImg.src ="./cards/"+card+".png";
+            if (player == "dealer"){
+                dealerSum += getValue(card)
+                dealerAceCount+= checkAce(card)
+                DEALER_BOARD.append(cardImg)
+                displayResults();
+            }
+            if( player == "player"){
+                yourSum += getValue(card);
+                yourAceCount+= checkAce(card);
+                PLAYER_BOARD.append(cardImg);
+                displayResults();
+            }
+           resolve();
+        }, 1000)
+    })
+}
 
-function startGame(){
+async function startGame(){
     hidden = deck.pop();
     dealerSum += getValue(hidden);
+  
+    await dealCard("dealer");
+    await dealCard("player");
+    await dealCard("player");
 
-    let card = deck.pop();
-    let cardImg = document.createElement('img');
-    cardImg.src ="./cards/"+card+".png";
-    dealerSum += getValue(card);
-    dealerAceCount+= checkAce(card)
-    DEALER_BOARD.append(cardImg)
-
-    for (let i = 0; i < 2; i++){
-        let card = deck.pop();
-        let cardImg = document.createElement('img');
-        cardImg.src ="./cards/"+card+".png";
-        yourSum += getValue(card);
-        yourAceCount+= checkAce(card);
-        PLAYER_BOARD.append(cardImg);
-    }
 
     document.getElementById("hit").addEventListener("click", hit);
     document.getElementById("stay").addEventListener("click", stay);
     displayResults();
+
     if(yourSum == 21){
         stay();
     }
@@ -45,11 +58,10 @@ function startGame(){
 function getValue(card){
     let data = card.split("-");
     let value = data[0];
-
     if(isNaN(value)){
         if(value == "A"){
             return 11;
-        }
+        }   
             return 10;
     }
     return parseInt(value);
@@ -59,16 +71,11 @@ function checkAce(card){
     return card[0] == "A"? 1 : 0;
 }
 
-function hit(){
+async function hit(){
     if(!canHit){
         return;
     }
-    let card = deck.pop();
-    let cardImg = document.createElement('img');
-    cardImg.src ="./cards/"+card+".png";
-    yourSum += getValue(card);
-    yourAceCount+= checkAce(card);
-    PLAYER_BOARD.append(cardImg);
+    await dealCard("player")
     
     if (reduceAce(yourSum, yourAceCount) > 21){
         canHit = false;
@@ -86,15 +93,10 @@ function reduceAce(sum, aceCount){
     return sum;
 }
 
-function stay(){
+async function stay(){
     if(yourSum != 21){
         while (dealerSum < 17){
-            let card = deck.pop();
-            let cardImg = document.createElement('img');
-            cardImg.src ="./cards/"+card+".png";
-            dealerSum += getValue(card);
-            dealerAceCount+= checkAce(card)
-            DEALER_BOARD.append(cardImg)
+            await dealCard("dealer")
         }
         document.getElementById("hidden").src = "./cards/"+ hidden+".png";
     }    
