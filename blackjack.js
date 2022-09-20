@@ -1,5 +1,5 @@
 import{shuffleDeck,buildDeck} from './deck.js';
-
+let blackjack = false;
 let dealerSum = 0;
 let yourSum = 0;
 let dealerAceCount = 0;
@@ -50,7 +50,9 @@ async function startGame(){
     displayResults();
 
     if(yourSum == 21){
+        blackjack = true;
         stay();
+        alert("Blackjack!");
     }
 
 }
@@ -94,16 +96,16 @@ function reduceAce(sum, aceCount){
 }
 
 async function stay(){
-    if(yourSum != 21){
-        while (dealerSum < 17){
-            await dealCard("dealer")
-        }
-        document.getElementById("hidden").src = "./cards/"+ hidden+".png";
-    }    
-        dealerSum = reduceAce(dealerSum, dealerAceCount);
-        yourSum = reduceAce(yourSum, yourAceCount);
-        canHit = false;
-        let message = "";
+ 
+    while (dealerSum < 17){
+        await dealCard("dealer")
+    }
+    document.getElementById("hidden").src = "./cards/"+ hidden+".png";
+
+    dealerSum = reduceAce(dealerSum, dealerAceCount);
+    yourSum = reduceAce(yourSum, yourAceCount);
+    canHit = false;
+    let message = "";
     if(yourSum > 21){
 
         message = "You Lose!";
