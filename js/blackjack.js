@@ -51,7 +51,7 @@ async function startGame(){
 
     if(yourSum == 21){
         blackjack = true;
-        stay();
+        await stay();
         alert("Blackjack!");
     }
 
