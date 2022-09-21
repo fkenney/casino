@@ -120,7 +120,7 @@ async function stay(){
 
         message = " - You Win!";
     }else{
-        message = " - Your Lose!";
+        message = " - You Lose!";
     }
     document.getElementById("results").innerText = message;
     document.getElementById("your-sum").innerText = yourSum;
