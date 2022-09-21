@@ -100,7 +100,7 @@ async function stay(){
     while (dealerSum < 17){
         await dealCard("dealer")
     }
-    document.getElementById("hidden").src = "./cards/"+ hidden+".png";
+    document.getElementById("hidden").src = "../cards/"+ hidden+".png";
 
     dealerSum = reduceAce(dealerSum, dealerAceCount);
     yourSum = reduceAce(yourSum, yourAceCount);
