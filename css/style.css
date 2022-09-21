@@ -20,10 +20,12 @@ body{
     margin-right: 25%;
 }
 #dealer-cards img{
-    width: 10%;
+    width: 8%;
+    margin: 2px;
 }
 #your-cards img{
-    width: 10%;
+    width: 8%;
+    margin: 2px;
 }
 
 #baccarat{
