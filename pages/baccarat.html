@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Baccarat</title>
+</head>
+<body id="baccarat">
+       <div class="home">
+            <button id="playAgain" class="btn btn-primary btn-outline-white btn-lg me-2 shadow" onclick="window.location.reload();">Start New Game</button>
+            <a href="../index.html" class="btn btn-dark btn-lg">Home</a>
+       </div>
+        <div>
+            <div id="bet-buttons">
+                <button id="betPlayer" type="button" value="Player" class="btn btn-primary btn-lg inital-bet">Bet Player</button>
+                <button id="betBanker" type="button" value="Banker" class="btn btn-danger btn-lg inital-bet">Bet Banker</button>
+                <button id="betTie" type="button"  value="Tie" class="btn btn-warning  btn-lg inital-bet">Bet Tie</button>
+
+            </div>
+            <br>
+            <h3 id="bet-message"></h3>
+        
+        </div>
+        <div id="board">
+            <h2 class="text-white" id="result"></h2>
+            <div class="row">
+                <div id="player" class="col shadow  m-2 rounded"><h1 class="text-white">Player</h1><h5 id="player-points">Points:</h5></div>
+                <div id="banker" class="col shadow  m-2 rounded"><h1 class="text-white">Banker</h1><h5 id="banker-points">Points:</h5></div> 
+            </div>
+        </div>
+        <!--BACCARAT SCRIPT-->
+        <script type="module" src="../js/baccarat.js"></script>
+</body>
+</html>

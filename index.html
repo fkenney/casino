@@ -4,26 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blackjack</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Casino</title>
 </head>
-<body>
-    <button class="btn btn-light btn-lg btn-outline-primary mt-3 shadow" onClick="window.location.reload();">Start New Game</button>
+<body id="casino">
+    <div id="games" class="row row-cols-md-2 g-4">
+        <div class="col">
+          <div class="card">
+            <img src="./images/blackjackicon.png" class="card-img-top" alt="blackjack" style="background-color:#dfdfdf; height: 250px">
+            <div class="card-body">
+              <h5 class="card-title">Blackjack</h5>
+              <p class="card-text">Play against the dealer to get a hand total closer to 21 than the dealer</p>
+              <a href="./pages/blackjack.html" class="btn btn-primary">Play</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card border shadow">
+            <img src="./images/baccaraticon.png" class="card-img-top" alt="baccarat" style="background-color:#dfdfdf; height: 250px">
+            <div class="card-body">
+              <h5 class="card-title">Baccarat</h5>
+              <p class="card-text">Place a bet on either the player or banker—and whichever hand totals closest to nine wins</p>
+              <a href="./pages/baccarat.html" class="btn btn-primary">Play</a>
+            </div>
+          </div>
+        </div>
 
-    <h2 class="text-white mt-4">Dealer: <span class="text-white" id="dealer-sum"></span><span id="dealer-bust"></span></h2>
-    <div class="mb-3" id="dealer-cards">
-        <img id="hidden" src="./cards/BACK.png" alt="">
-    </div>
 
-    <h2 class="text-white">You: <span class="text-white" id="your-sum"></span><span id="player-bust"></span></h2>
-    <div id="your-cards"></div>
-
-    <br>
-    <button class="btn btn-primary btn-lg" id="hit">Hit</button>
-    <button class="btn btn-warning btn-lg" id="stay">Stay</button>
-    <p class="display-5 text-white" id="results"></p>
-    <script type="module" src="blackjack.js"></script>
+      </div>
+    
 </body>
-
 </html>
