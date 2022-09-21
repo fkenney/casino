@@ -48,3 +48,6 @@ body{
 #bet-buttons{
     margin-top: 10%;
 }
+#playAgain{
+    display: none;
+}

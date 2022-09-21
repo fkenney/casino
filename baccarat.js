@@ -5,6 +5,9 @@ const BANKER_BOARD = document.getElementById('banker');
 const PLAYER_BOARD = document.getElementById('player');
 const BANKER_POINTS = document.getElementById('banker-points');
 const PLAYER_POINTS = document.getElementById('player-points');
+const RESULT_MESSAGE = document.getElementById('result');
+const PLAY_AGAIN = document.getElementById('playAgain');
+const BET_BUTTONS = document.getElementById('betButtons');
 
 let shoe = [];
 let playerHand = [];
@@ -107,7 +110,9 @@ function bankerGetsThirdCard() {
     return bankerDraws;
 }
 
-async function startGame() {
+async function startGame(bet) {
+    BET_BUTTONS.style.display = "none";
+    RESULT_MESSAGE = `You bet ${bet}`;
     await dealCard("player")
     await dealCard("banker")
     await dealCard("player")
@@ -120,6 +125,30 @@ async function startGame() {
     if(bankerGetsThirdCard()){
         await dealCard("banker")
     }
+
+    RESULT_MESSAGE.innerText = results();
+    PLAY_AGAIN.style.display = "initial";
 }
 
-    startGame()
+function results(){
+    let playerScore = calculatePoints(playerPoints);
+    let bankerScore = calculatePoints(bankerPoints);
+    let result = '';
+
+    if(playerHand.length ==2 && (player == 8 || player == 9) && playerScore != bankerScore){
+        result = "Player Wins!"
+    }else if((bankerHand.length ==2 && bankerScore == 8 || bankerScore == 9 ) && playerScore != bankerPoints){
+        result = "Banker Wins!"
+    }else if(playerScore == bankerScore){
+        result = "Tie!"
+    }else if(bankerScore > playerScore){
+        result = "Banker Wins!"
+    }else{
+        result = "Player Wins!"
+    }
+
+    return result;
+}
+function test(){
+    alert('this is a test')
+}

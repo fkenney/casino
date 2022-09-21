@@ -10,14 +10,18 @@
 </head>
 <body id="baccarat">
     <div id="bet-buttons">
-        <button class="btn btn-primary">Bet Player</button>
-        <button class="btn btn-danger">Bet Banker</button>
+        <div id="betButtons">
+            <button type="button" class="btn btn-primary btn-lg" onclick="startGame('Player')">Bet Player</button>
+            <button type="button" class="btn btn-danger btn-lg" onclick="test()">Bet Banker</button>
+            <button type="button" class="btn btn-light btn-outline-success btn-lg" onclick="startGame('Tie');">Bet Tie</button>
+        </div>
+        <div id="playAgain" class="btn btn-light btn-outline-danger btn-lg mt-3 shadow" onclick="window.location.reload();">Play Again</div>
     </div>
     <div id="board">
-        <h2 class="text-white">Message</h2>
+        <h2 class="text-white" id="result"></h2>
         <div class="row">
             <div id="player" class="col shadow  m-2 rounded"><h1 class="text-white">Player</h1><h5 id="player-points">Points:</h5></div>
-            <div id="banker" class="col shadow  m-2 rounded"><h1 class="text-white">Banker</h1><h5 id="banker-points">Points:</h5></div>
+            <div id="banker" class="col shadow  m-2 rounded"><h1 class="text-white">Banker</h1><h5 id="banker-points">Points:</h5></div> 
         </div>
     </div>
     <script type="module" src="baccarat.js"></script>
