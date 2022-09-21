@@ -7,14 +7,20 @@ const BANKER_POINTS = document.getElementById('banker-points');
 const PLAYER_POINTS = document.getElementById('player-points');
 const RESULT_MESSAGE = document.getElementById('result');
 const PLAY_AGAIN = document.getElementById('playAgain');
-const BET_BUTTONS = document.getElementById('betButtons');
+const BET_BUTTONS = document.querySelectorAll('.inital-bet');
+
+
 
 let shoe = [];
 let playerHand = [];
 let bankerHand = [];
 let playerPoints = 0;
 let bankerPoints = 0;
+let betMessage = document.getElementById('bet-message');
 
+document.getElementById('betPlayer').addEventListener("click", startGame)
+document.getElementById('betBanker').addEventListener("click", startGame)
+document.getElementById('betTie').addEventListener("click", startGame)
 
 // Builds shoe with 8 decks
 for (let i = 0; i < NUM_OF_DECKS; i++) {
@@ -110,9 +116,15 @@ function bankerGetsThirdCard() {
     return bankerDraws;
 }
 
-async function startGame(bet) {
-    BET_BUTTONS.style.display = "none";
-    RESULT_MESSAGE = `You bet ${bet}`;
+async function startGame(event) {
+    for (let i = 0; i < BET_BUTTONS.length; i++){
+        BET_BUTTONS[i].style.display = "none";
+    }
+
+
+    let bet = event.target.value;
+ 
+    betMessage.innerText = `You Bet ${bet}`;
     await dealCard("player")
     await dealCard("banker")
     await dealCard("player")
@@ -127,7 +139,8 @@ async function startGame(bet) {
     }
 
     RESULT_MESSAGE.innerText = results();
-    PLAY_AGAIN.style.display = "initial";
+    PLAY_AGAIN.style.display = "inline-block";
+    PLAY_AGAIN.style.marginTop = "10%";
 }
 
 function results(){

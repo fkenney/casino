@@ -49,5 +49,7 @@ body{
     margin-top: 10%;
 }
 #playAgain{
+    margin-top: 500px;
     display: none;
+
 }
