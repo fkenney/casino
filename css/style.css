@@ -19,12 +19,19 @@ body{
     margin-left: 25%;
     margin-right: 25%;
 }
-#dealer-cards img{
-    width: 8%;
+#dealer-cards, #your-cards{
+    background-color: #00000069;
+    padding:1%;
+    width: 55%;
+    margin:auto;
+    height: 35vh;
+}
+#dealer-cards img{   
+    width: 15%;
     margin: 2px;
 }
 #your-cards img{
-    width: 8%;
+    width: 15%;
     margin: 2px;
 }
 

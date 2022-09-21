@@ -15,17 +15,20 @@
     </div>
 
     <h2 class="mt-4">Dealer: <span  id="dealer-sum"></span><span id="dealer-bust"></span></h2>
-    <div class="mb-3" id="dealer-cards">
+    <div class="mb-3 rounded shadow" id="dealer-cards">
         <img id="hidden" src="../cards/BACK.png" alt="">
     </div>
 
-    <h2>You: <span id="your-sum"></span><span id="player-bust"></span></h2>
-    <div id="your-cards"></div>
+    <h2>You: <span id="your-sum"></span><span id="player-bust"><span id="results"></span></span></h2>
 
+    <div class="rounded shadow" id="your-cards">    
+        <button class="btn btn-primary btn-md mb-2" id="hit">Hit</button>
+        <button class="btn btn-warning btn-md mb-2" id="stay">Stay</button>
+        <br>
+    </div>
     <br>
-    <button class="btn btn-primary btn-lg" id="hit">Hit</button>
-    <button class="btn btn-warning btn-lg" id="stay">Stay</button>
-    <p class="display-5 text-white" id="results"></p>
+
+
     <script type="module" src="../js/blackjack.js"></script>
 </body>
 

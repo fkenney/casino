@@ -108,19 +108,19 @@ async function stay(){
     let message = "";
     if(yourSum > 21){
 
-        message = "You Lose!";
+        message = " - You Lose!";
 
     }else if(dealerSum > 21){
         document.getElementById('dealer-bust').innerText = " (Bust)"
-        message = "You Win!"
+        message = " - You Win!"
 
     }else if(yourSum == dealerSum){
-        message = "Tie!"
+        message = " - Tie!"
     }else if( yourSum > dealerSum){
 
-        message = "You Win!";
+        message = " - You Win!";
     }else{
-        message = "Your Lose!";
+        message = " - Your Lose!";
     }
     document.getElementById("results").innerText = message;
     document.getElementById("your-sum").innerText = yourSum;
